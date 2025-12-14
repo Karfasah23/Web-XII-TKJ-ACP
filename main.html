@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Story of Memories from the SMK Class of 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+        <p>Memuat Kenangan...</p>
+    </div>
+
+    <header class="main-header">
+        <h1 class="logo">🎓 Class of '25</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#walikelas">Wali Kelas</a></li>
+                <li><a href="#timeline">Perjalanan</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#galeri">Galeri Puncak</a></li>
+                <li><a href="#profil">Anggota</a></li>
+                <li><a href="#tujuan">Tujuan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section parallax">
+        <div class="hero-content">
+            <p class="subtitle">Sebuah Kisah Abadi</p>
+            <h2>3 Tahun, Tak Tergantikan.</h2>
+            <p>Memori SMK yang membentuk Kami menjadi seorang Profesional.</p>
+            <a href="#timeline" class="cta-button">Mulai Eksplorasi Kenangan</a>
+        </div>
+    </section>
+    
+    <section id="walikelas" class="teacher-section">
+        <h3 class="section-title">👨‍🏫 Our Beloved Homeroom Teacher</h3>
+        <div id="teacher-grid" class="teacher-grid-container">
+            </div>
+    </section>
+
+    <section id="timeline" class="timeline-container">
+        <h3 class="section-title">📚 Our Journey</h3>
+        
+        <div class="accordion-wrapper">
+            <button class="accordion-tab active" data-year="1">The Beginning - Awal Pembentukan</button>
+            <div class="accordion-content open" id="content-1">
+                <p>Momen adaptasi, kebingungan menjadi siswa SMK, dan awal mula persahabatan sejati.</p>
+                <div class="photo-grid" data-year="1"></div>
+            </div>
+
+            <button class="accordion-tab" data-year="2">The Growth - Masa Eksplorasi & Magang</button>
+            <div class="accordion-content" id="content-2">
+                <p>Tahun penuh tantangan; menguasai materi yang lebih dalam, mengerjakan proyek besar, dan pengalaman pertama di dunia kerja nyata.</p>
+                <div class="photo-grid" data-year="2"></div>
+            </div>
+
+            <button class="accordion-tab" data-year="3">The Farewell - Puncak & Kelulusan</button>
+            <div class="accordion-content" id="content-3">
+                <p>Tahun penentuan karir, ujian kompetensi, dan puncak perayaan perpisahan.</p>
+                <div class="photo-grid" data-year="3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video" class="video-section">
+        <h3 class="section-title">🎥 Momen Video Acak Kami</h3>
+        <div id="video-grid" class="video-grid-container">
+            </div>
+    </section>
+
+    <section id="galeri" class="full-gallery">
+        <h3 class="section-title">📸 Galeri Terbaik & Momen Puncak</h3>
+        <div id="lightbox-gallery" class="gallery-container">
+            </div>
+    </section>
+
+    <section id="profil" class="profile-section">
+        <h3 class="section-title">👤 Wajah-wajah Lulusan (25 Anggota)</h3>
+        <div id="profile-grid" class="profile-grid-container">
+            </div>
+    </section>
+
+    <section id="tujuan" class="goals-section">
+        <h3 class="section-title">🚀 Tujuan Setelah Lulus</h3>
+        <p class="subtitle-text">Lihat apa yang akan dicapai oleh setiap anggota kelas setelah meninggalkan SMK.</p>
+        <div id="goals-grid" class="goals-grid-container">
+            </div>
+    </section>
+    
+    <footer id="kontak">
+        <p>&copy; 2025 The Legacy. Dibuat dengan dedikasi untuk mengenang setiap langkah kami. | Hubungi: [Email/Media Sosial Kelas Anda]</p>
+    </footer>
+
+    <div id="lightbox-modal" class="lightbox-modal">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
