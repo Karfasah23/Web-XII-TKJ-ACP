@@ -44,8 +44,8 @@ const memories = [
     // Kelas X
     // JALUR LAMA: 'foto member/1.jpg' -> JALUR BARU (DIASUMSIKAN ADA DI assets/images):
     { year: 1, src: 'Image/x/1.jpg', caption: 'Masa Orientasi - Momen perkenalan pertama.' },
-    { year: 1, src: 'Image/x/1.jpg', caption: 'Lomba memasak di hari Kartini.' },
-    { year: 1, src: 'Image/x/1.jpg', caption: 'Kunjungan Industri: Melihat proses produksi.' },
+    { year: 1, src: 'Image/x/2.jpg', caption: 'Lomba memasak di hari Kartini.' },
+    { year: 1, src: 'Image/x/3.jpg', caption: 'Kunjungan Industri: Melihat proses produksi.' },
     
     // Kelas XI
     { year: 2, src: 'Image/xi/1.jpg', caption: 'Momen PKL: Pertama kali pakai ID Card perusahaan.' },
@@ -392,4 +392,5 @@ function setupLightbox() {
     }
 
 }
+
 
