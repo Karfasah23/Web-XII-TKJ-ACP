@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Memories TKJ ACP</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="background-music" loop>
+        <source src="Sound/Project Pop - Ingatlah Hari Ini.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+        <p>Memuat Kenangan...</p>
+    </div>
+
+    <header class="main-header">
+        <h1 class="logo">🎓 SUBEDUCLASS</h1>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#walikelas">Wali Kelas</a></li>
+                <li><a href="#timeline">Perjalanan</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#album">Album</a></li>
+                <li><a href="#galeri">Galeri Puncak</a></li>
+                <li><a href="#profil">Anggota</a></li>
+                <li><a href="#tujuan">Tujuan</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section parallax">
+        <div class="hero-content">
+            <p class="subtitle">A Story That Lives Forever</p>
+            <h2>Three Years, Forever Ours.</h2>
+            <p>A three-year journey that turned us into better, more mature people</p>
+            <a href="#timeline" class="cta-button">Start Exploring Memories</a>
+        </div>
+    </section>
+    
+    <section id="walikelas" class="teacher-section">
+        <h3 class="section-title">👨‍🏫 Our Beloved Homeroom Teacher</h3>
+        <div id="teacher-grid" class="teacher-grid-container"></div>
+    </section>
+
+    <section id="timeline" class="timeline-container">
+        <h3 class="section-title">📚 Our Journey</h3>
+        
+        <div class="accordion-wrapper">
+            <button class="accordion-tab active" data-year="1">The Beginning - Awal Pembentukan</button>
+            <div class="accordion-content open" id="content-1">
+                <p>Momen adaptasi, kebingungan menjadi siswa SMK, dan awal mula persahabatan sejati.</p>
+                <div class="photo-grid" data-year="1"></div>
+            </div>
+
+            <button class="accordion-tab" data-year="2">The Growth - Masa Eksplorasi & Magang</button>
+            <div class="accordion-content" id="content-2">
+                <p>Tahun penuh tantangan; menguasai materi yang lebih dalam, mengerjakan proyek besar, dan pengalaman pertama di dunia kerja nyata.</p>
+                <div class="photo-grid" data-year="2"></div>
+            </div>
+
+            <button class="accordion-tab" data-year="3">The Farewell - Puncak & Kelulusan</button>
+            <div class="accordion-content" id="content-3">
+                <p>Tahun penentuan karir, ujian kompetensi, dan puncak perayaan perpisahan.</p>
+                <div class="photo-grid" data-year="3"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="video" class="video-section">
+        <h3 class="section-title">🎥 Momen Video Acak Kami</h3>
+        <div id="video-grid" class="video-grid-container"></div>
+    </section>
+
+    <section id="album" class="album-section">
+        <h3 class="section-title">📷 Album Kenangan Kami</h3>
+        <p class="album-subtitle">Kumpulan foto-foto terbaik sepanjang perjalanan 3 tahun</p>
+        
+        <!-- Filter Buttons -->
+        <div class="album-filters">
+            <button class="filter-btn active" data-filter="all">Semua Foto</button>
+            <button class="filter-btn" data-filter="class">Kelas</button>
+            <button class="filter-btn" data-filter="event">Event</button>
+            <button class="filter-btn" data-filter="trip">Trip & Perjalanan</button>
+            <button class="filter-btn" data-filter="pkm">PKL/PKM</button>
+            <button class="filter-btn" data-filter="graduation">Kelulusan</button>
+        </div>
+
+        <!-- Album Grid -->
+        <div id="album-grid" class="album-grid-container"></div>
+    </section>
+
+    <section id="galeri" class="full-gallery">
+        <h3 class="section-title">📸 Galeri Terbaik & Momen Puncak</h3>
+        <div id="lightbox-gallery" class="gallery-container"></div>
+    </section>
+
+    <section id="profil" class="profile-section">
+        <h3 class="section-title">👤 Wajah-wajah Lulusan (24 Anggota)</h3>
+        <div id="profile-grid" class="profile-grid-container"></div>
+    </section>
+
+    <section id="tujuan" class="goals-section">
+        <h3 class="section-title">🚀 Goals After Graduation</h3>
+        <p class="subtitle-text">Where destiny will guide each of us after this chapter ends.</p>
+        <div id="goals-grid" class="goals-grid-container"></div>
+    </section>
+    
+    <footer id="kontak">
+        <p>&copy; Class of 2026. Created with dedication to remember every step of our journey. | Instagram: @subeduclassa_xii_tkj</p>
+    </footer>
+
+    <div id="lightbox-modal" class="lightbox-modal">
+        <span class="close-btn">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Lightbox Image">
+        <div id="lightbox-caption"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

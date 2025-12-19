@@ -1,0 +1,910 @@
+/* ========================================= */
+/* 1. GLOBAL RESET & TYPOGRAPHY */
+/* ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #8A2BE2;
+    --color-secondary: #f8f9fa;
+    --color-text-dark: #343a40;
+    --color-text-light: #ffffff;
+    --color-accent: #ff69b4;
+    --transition-speed: 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-secondary); 
+    color: var(--color-text-dark); 
+    opacity: 0; 
+    transition: opacity 0.5s ease-in-out;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-primary); 
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* ========================================= */
+/* 2. LOADING SCREEN */
+/* ========================================= */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary); 
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+}
+
+.loader {
+    border: 6px solid var(--color-text-light);
+    border-top: 6px solid var(--color-accent); 
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.5s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========================================= */
+/* 3. HEADER & NAVIGASI (RESPONSIVE) */
+/* ========================================= */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--color-primary); 
+    font-weight: 800;
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin: 3px 0;
+    transition: var(--transition-speed);
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.main-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.main-header li a {
+    color: var(--color-text-dark);
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    transition: color var(--transition-speed), border-bottom var(--transition-speed);
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+    display: block;
+    white-space: nowrap; /* Prevent text wrapping */
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+}
+
+.main-header li a:hover {
+    color: var(--color-primary); 
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* ========================================= */
+/* 4. HERO & CTA BUTTON (RESPONSIVE) */
+/* ========================================= */
+.hero-section {
+    background: linear-gradient(rgba(138, 43, 226, 0.6), rgba(138, 43, 226, 0.8)), 
+                url('Image/Background.jpg') no-repeat center center; 
+    min-height: 90vh; 
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.hero-content {
+    animation: fadeIn 1.5s ease-out;
+    max-width: 800px;
+}
+
+.hero-content h2 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p:last-of-type {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: var(--color-accent); 
+    color: var(--color-text-light);
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.7);
+}
+
+/* ========================================= */
+/* 5. WALI KELAS SECTION (RESPONSIVE) */
+/* ========================================= */
+.teacher-section {
+    padding: 6rem 5% 3rem; 
+    background-color: var(--color-text-light); 
+    text-align: center;
+}
+
+.teacher-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 40px;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+}
+
+.teacher-card {
+    background: var(--color-secondary); 
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); 
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.teacher-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.4); 
+}
+
+.teacher-img-wrapper {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.teacher-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-bottom: 5px solid var(--color-accent); 
+}
+
+.teacher-info h4 {
+    color: var(--color-primary);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: 0.2rem;
+    padding: 0 10px;
+}
+
+.teacher-info p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #6c757d;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+/* ========================================= */
+/* 6. TIMELINE ACCORDION (RESPONSIVE) */
+/* ========================================= */
+.timeline-container {
+    padding: 6rem 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.accordion-wrapper {
+    margin-top: 2rem;
+}
+
+.accordion-tab {
+    background-color: var(--color-text-light);
+    color: var(--color-primary);
+    cursor: pointer;
+    padding: 1.5rem;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+    outline: none;
+    transition: background-color 0.4s, color 0.4s;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 700;
+}
+
+.accordion-tab:last-of-type {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.accordion-tab:hover, .accordion-tab.active {
+    background-color: var(--color-primary); 
+    color: var(--color-text-light);
+    border-color: var(--color-primary);
+}
+
+.accordion-content {
+    padding: 0 1.5rem;
+    overflow: hidden;
+    background-color: white;
+    max-height: 0;
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    border-left: 1px solid #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.accordion-content.open {
+    max-height: 5000px; 
+    padding: 1.5rem;
+}
+
+.accordion-content p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    margin-bottom: 1rem;
+}
+
+/* ========================================= */
+/* 7. VIDEO SECTION (RESPONSIVE & IMPROVED) */
+/* ========================================= */
+.video-section {
+    padding: 6rem 5%;
+    background-color: var(--color-secondary); 
+    text-align: center;
+}
+
+.video-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+}
+
+.video-card-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform var(--transition-speed);
+}
+
+.video-card-container:hover {
+    transform: scale(1.02);
+}
+
+.video-responsive {
+    background-color: #000; 
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+}
+
+.video-responsive video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    border: none;
+}
+
+.video-title {
+    padding: 15px;
+    font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--color-primary);
+}
+
+/* ========================================= */
+/* 8. ALBUM SECTION (NEW - RESPONSIVE) */
+/* ========================================= */
+.album-section {
+    padding: 6rem 5%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    text-align: center;
+}
+
+.album-subtitle {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    color: #6c757d;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+.album-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background-color: white;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.filter-btn:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+}
+
+.album-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.album-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    background: white;
+}
+
+.album-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.3);
+}
+
+.album-img-wrapper {
+    width: 100%;
+    padding-top: 100%; /* Square ratio */
+    position: relative;
+    overflow: hidden;
+}
+
+.album-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.album-item:hover img {
+    transform: scale(1.1);
+}
+
+.album-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform var(--transition-speed);
+}
+
+.album-item:hover .album-overlay {
+    transform: translateY(0);
+}
+
+.album-overlay h4 {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.album-overlay p {
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    opacity: 0.9;
+}
+
+.album-category-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-accent);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Hide filtered items */
+.album-item.hidden {
+    display: none;
+}
+
+/* ========================================= */
+/* 9. PHOTO GRID & GALLERY (RESPONSIVE) */
+/* ========================================= */
+.photo-grid, .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+    gap: 15px; 
+    margin-top: 2rem;
+    padding: 10px 0;
+}
+
+.photo-grid img, .gallery-container img {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.photo-grid img:hover, .gallery-container img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.full-gallery {
+    background-color: var(--color-secondary); 
+    padding: 6rem 5%;
+    text-align: center;
+}
+
+/* ========================================= */
+/* 10. PROFIL ANGGOTA (RESPONSIVE) */
+/* ========================================= */
+.profile-section {
+    padding: 6rem 5%;
+    background-color: var(--color-text-light); 
+    text-align: center;
+}
+
+.profile-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+}
+
+.profile-card {
+    background: var(--color-secondary); 
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(138, 43, 226, 0.3); 
+}
+
+.profile-img-wrapper {
+    width: 100%;
+    padding-top: 75%;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s;
+}
+
+.profile-card:hover img {
+    transform: scale(1.1);
+}
+
+.profile-info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.profile-info h4 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.profile-info p {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    color: #6c757d;
+    font-style: italic;
+    min-height: 40px;
+}
+
+/* ========================================= */
+/* 11. TUJUAN MASA DEPAN SECTION (RESPONSIVE) */
+/* ========================================= */
+.goals-section {
+    padding: 6rem 5%;
+    background-color: var(--color-primary); 
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+.goals-section .section-title {
+    color: var(--color-text-light); 
+}
+
+.goals-section .subtitle-text {
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.goals-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.goal-card {
+    background: white;
+    color: var(--color-text-dark);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+}
+
+.goal-card h5 {
+    color: var(--color-primary);
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.goal-card .member-name {
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
+    color: #6c757d;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.goal-card .goal-status {
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.goal-card .goal-status.kuliah {
+    color: #007bff; 
+}
+
+.goal-card .goal-status.kerja {
+    color: #28a745; 
+}
+
+.goal-card .goal-status.usaha {
+    color: #ffc107; 
+}
+
+.goal-card .goal-status.merantau {
+    color: #17a2b8;
+}
+
+/* ========================================= */
+/* 12. LIGHTBOX MODAL (RESPONSIVE) */
+/* ========================================= */
+.lightbox-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.95); 
+    padding-top: 60px;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px; 
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    min-height: 50px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: var(--transition-speed);
+    cursor: pointer;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+/* ========================================= */
+/* 13. FOOTER (RESPONSIVE) */
+/* ========================================= */
+footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 2rem 5%;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+/* ========================================= */
+/* 14. MEDIA QUERIES (RESPONSIVITAS) */
+/* ========================================= */
+
+/* Tablet & Mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .main-header nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease-in-out;
+        padding-top: 80px;
+    }
+    
+    .main-header nav.active {
+        right: 0;
+    }
+    
+    .main-header nav ul {
+        flex-direction: column;
+        gap: 0;
+        flex-wrap: nowrap;
+    }
+    
+    .main-header li {
+        width: 100%;
+    }
+    
+    .main-header li a {
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #eee;
+        font-size: 1rem;
+        white-space: normal; /* Allow wrapping in mobile menu */
+    }
+    
+    .hero-section {
+        background-attachment: scroll;
+        min-height: 70vh;
+    }
+    
+    .teacher-grid-container,
+    .profile-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .video-grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .photo-grid, .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+    }
+    
+    .photo-grid img, .gallery-container img {
+        height: 120px;
+    }
+    
+    .goals-grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .accordion-tab {
+        padding: 1rem;
+    }
+    
+    .accordion-content.open {
+        padding: 1rem;
+    }
+
+    .album-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .album-filters {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .main-header {
+        padding: 1rem 3%;
+    }
+    
+    .teacher-grid-container,
+    .profile-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .photo-grid, .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 8px;
+    }
+    
+    .photo-grid img, .gallery-container img {
+        height: 100px;
+    }
+    
+    .close-btn {
+        font-size: 30px;
+        right: 20px;
+    }
+
+    .album-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Animasi */
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
